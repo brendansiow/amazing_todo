@@ -47,19 +47,22 @@ class TodoCard extends StatelessWidget {
                   Text(
                     todo.title,
                     style: Theme.of(context).textTheme.cardTitle,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
                   ),
                   const SizedBox(height: 16),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       VerticalLabelValue(
                         label: 'Start Date',
                         value: DateFormat('d MMMM yyyy').format(todo.startDate),
                       ),
+                      const SizedBox(width: 10),
                       VerticalLabelValue(
                         label: 'End Date',
                         value: DateFormat('d MMMM yyyy').format(todo.endDate),
                       ),
+                      const SizedBox(width: 10),
                       VerticalLabelValue(
                         label: 'Time Left',
                         value: _getTimeLeft(),
@@ -115,25 +118,27 @@ class VerticalLabelValue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(color: Colors.grey),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          value,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(fontWeight: FontWeight.bold),
-        ),
-      ],
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: Colors.grey),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            value,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
