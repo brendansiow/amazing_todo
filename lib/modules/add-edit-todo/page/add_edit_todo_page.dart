@@ -64,8 +64,8 @@ class AddEditTodoPage extends ConsumerWidget {
                   border: OutlineInputBorder(),
                 ),
                 inputType: InputType.date,
-                // initialDate: DateTime.now(),
-                // firstDate: DateTime.now(),
+                initialDate: DateTime.now(),
+                firstDate: DateTime.now(),
                 valueTransformer: (value) =>
                     value != null ? DateUtils.dateOnly(value) : null,
                 validator: FormBuilderValidators.required(),
@@ -78,8 +78,8 @@ class AddEditTodoPage extends ConsumerWidget {
                   border: OutlineInputBorder(),
                 ),
                 inputType: InputType.date,
-                // initialDate: DateTime.now().add(const Duration(days: 1)),
-                // firstDate: DateTime.now().add(const Duration(days: 1)),
+                initialDate: DateTime.now().add(const Duration(days: 1)),
+                firstDate: DateTime.now().add(const Duration(days: 1)),
                 valueTransformer: (value) =>
                     value != null ? DateUtils.dateOnly(value) : null,
                 validator: FormBuilderValidators.compose([
